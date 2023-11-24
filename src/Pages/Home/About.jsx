@@ -5,7 +5,7 @@ import AboutCard from './AboutCard';
 
 const About = () => {
   return (
-    <div className='py-16'>
+    <div className=''>
       <div>
         <Title heading='Achieve Your Goals.' subheading='ABOUT US' />
       </div>
