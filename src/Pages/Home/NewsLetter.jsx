@@ -15,6 +15,7 @@ const NewsLetter = () => {
     axiosPublic.post('/subUser', subUser)
     .then(function (response) {
       console.log(response);
+       e.target.reset();
       Swal.fire({
   title: 'success!',
   text: 'you are subscribe successfully',
