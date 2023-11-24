@@ -9,7 +9,7 @@ const Services = () => {
   console.log(services);
   return (
     <div className='py-16'>
-      <div>
+      <div className='pb-10'>
         <Title heading='Service We Provide' subheading='OUR SERVICES'/>
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7'>
