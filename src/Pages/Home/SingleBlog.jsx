@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaArrowRight, FaCalendar, FaUser } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const SingleBlog = ({ article }) => {
   
@@ -16,7 +17,10 @@ const SingleBlog = ({ article }) => {
           <h2 className="card-title inline-block transition-all duration-700 hover:border-b-2 border-white ">{ title}</h2>
           <p>{ desc?.slice(0,200)}...</p>
     <div className="card-actions ">
-      <button className="btn bg-[#dc1853] text-white border-none">Show Details <FaArrowRight /> </button>
+            <Link to={`/blogs/${_id}`}>
+            <button className="btn hover:bg-black hover:text-white transition-all duration-500 bg-[#dc1853] text-white border-none">Show Details <FaArrowRight /> </button>
+            
+            </Link>
     </div>
   </div>
 </div>

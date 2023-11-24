@@ -13,7 +13,7 @@ const Blog = () => {
   const { blog } = useBlog();
 
    const settings = {
-      dots: true,
+      dots: false,
       infinite: true,
       slidesToShow: 3,
       slidesToScroll: 1,
@@ -49,7 +49,7 @@ const Blog = () => {
       ]
     };
   return (
-    <div>
+    <div className='pb-16'>
       
        <div className='py-16'>
       <Title heading='Read Our Latest Articles' subheading='BLOG POSTS' />

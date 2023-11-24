@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SingleTeam = ({ tm }) => {
-  console.log(Object.keys(tm).join(','));
+ 
   const { _id, img, title, desc } = tm;
   return (
     // <div>
