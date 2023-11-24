@@ -9,6 +9,7 @@ const {  data:services } = useQuery({
   queryFn: async () => {
     const data = await axiosPublic.get('/services')
     return data.data
+    
   },
 })
   return {services}
