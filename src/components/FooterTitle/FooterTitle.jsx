@@ -5,7 +5,7 @@ const FooterTitle = ({title}) => {
     <div>
       <h2 className=' relative pb-2'>
         {title}
-        <span className=' absolute bottom-0 left-0 bg-red-600 h-[2px] w-[40px]'>
+        <span className=' absolute bottom-0 left-0 bg-red-500 h-[2px] w-[40px]'>
 
         </span>
       
