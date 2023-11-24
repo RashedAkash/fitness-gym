@@ -23,7 +23,7 @@ const Banner = () => {
   return (
     <div>
       <div>
-        <h2>Auto Play</h2>
+        
         <Slider {...settings}>
           
           <div>
