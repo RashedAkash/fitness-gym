@@ -9,7 +9,7 @@ const BannerImg = ({img}) => {
   <div className="hero-content text-center text-neutral-content">
     <div className="max-w-md">
       <h1 className="mb-5 uppercase text-2xl text-[#dc1853] font-bold">Welcome to our gym</h1>
-      <p className="mb-5 text-5xl font-bold uppercase bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 text-transparent bg-clip-text ">The Best Studio In Town</p>
+      <p className="mb-5 text-5xl font-bold uppercase bg-gradient-to-r from-[#dc1853] via-green-500  to-white text-transparent bg-clip-text ">The Best Studio In Town</p>
             <Link to='/classes'>
             <button className="btn bg-[#dc1853] border-none text-white">Our Classes</button>
             </Link>

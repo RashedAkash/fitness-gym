@@ -15,7 +15,7 @@ const AboutCard = ({ about }) => {
     <p>{ desc?.slice(0,200)}...</p>
     <Link to='/trainer'>
           <div className="card-actions">
-      <button className="btn group-hover:bg-gray-900 text-white bg-[#dc1853]">Buy Now</button>
+      <button className="btn group-hover:bg-gray-900 text-white bg-[#dc1853]">Apoinment Now</button>
     </div>
           </Link>
   </div>
