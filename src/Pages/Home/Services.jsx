@@ -6,7 +6,7 @@ import Title from '../../components/Title/Title';
 
 const Services = () => {
   const { services } = useServices();
-  console.log(services);
+  
   return (
     <div className='py-16'>
       <div className='pb-10'>
