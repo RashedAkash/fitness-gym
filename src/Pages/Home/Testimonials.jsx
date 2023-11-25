@@ -11,7 +11,7 @@ import SingleReview from './SingleReview';
 
 const Testimonials = () => {
   const { reviews } = useReviews();
-console.log(reviews);
+
    const settings = {
       dots: false,
       infinite: true,

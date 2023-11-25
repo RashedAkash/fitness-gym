@@ -6,14 +6,20 @@ import Team from './Team';
 import NewsLetter from './NewsLetter';
 import Blog from './Blog';
 import Testimonials from './Testimonials';
+import Classes from '../Classes/Classes';
+import FeaturedClasses from './FeaturedClasses';
 
 const Home = () => {
   return (
     <div>
-      <Banner />      
+      <Banner />  
+      
       <Services />
+      
       <NewsLetter />
+<FeaturedClasses />
       <Team />
+      
       <About />
       <Testimonials />
       <Blog />
