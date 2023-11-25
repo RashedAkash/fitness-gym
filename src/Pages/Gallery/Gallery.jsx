@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
   import InfiniteScroll from 'react-infinite-scroll-component';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
+import PageTitle from '../../components/PageTitle/PageTitle';
+import img from '../../assets/ban2.jpg'
 
 
 
@@ -35,8 +37,8 @@ const Gallery = () => {
   }
   return (
     <div>
-      <div>
-
+      <div className=' pb-16'>
+<PageTitle img={img} text='Gallery'/>
       </div>
       <div >
         <InfiniteScroll
@@ -51,7 +53,7 @@ const Gallery = () => {
         dataLength={dataSource.length}
         next={fetchData}
         hasMore={hasMore}
-        loader={<span className="loading text-center loading-bars text-[#dc1853] loading-lg"></span>}
+        loader={<span style={{ textAlign: 'center' }} className="loading text-center loading-bars text-[#dc1853] loading-lg"></span>}
          endMessage={
     <p style={{ textAlign: 'center' }}>
       <b>Yay! You have seen it all</b>
