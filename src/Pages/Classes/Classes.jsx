@@ -8,13 +8,15 @@ import img from '../../assets/ban5.jpg'
 import restDay from '../../assets/rest.png'
 import Title from '../../components/Title/Title';
 import useClasses from '../../Hooks/useClasses';
-import ClassesTable from './ClassesTable';
+import ClassesTable from './AllClasses';
+import FeaturedClasses from '../Home/FeaturedClasses';
+import AllClasses from './AllClasses';
 
 
 
 const Classes = () => {
   const { classes } = useClasses();
-  console.log(classes);
+ 
   return (
     <div>
       <div className=' pb-16'>
@@ -201,6 +203,9 @@ const Classes = () => {
   </Tabs>
       </div>
       
+      <div>
+        <AllClasses />
+      </div>
     </div>
   );
 };

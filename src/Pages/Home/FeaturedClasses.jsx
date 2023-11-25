@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import Title from '../../components/Title/Title';
 import { gymClassesData } from '../../../public/gymClasses.data';
 import ClassCard from './ClassCard';
+import useGymClasses from '../../Hooks/useGymClass';
 
 const FeaturedClasses = () => {
+  
   const [classesData, setClassData] = useState(gymClassesData);
+
 
   const sortedClasses = [...classesData].sort((a, b) => b.members - a.members);
   const featuredClasses = sortedClasses.slice(0, 6);
