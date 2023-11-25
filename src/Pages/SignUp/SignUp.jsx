@@ -13,7 +13,7 @@ const SignUp = () => {
    const {
     register,
     handleSubmit,
-    watch,
+    reset,
     formState: { errors },
   } = useForm()
   const onSubmit = (data) => {
@@ -32,9 +32,10 @@ const SignUp = () => {
 					axiosPublic.post('/users', userInfo)
 						.then(res => {
 							console.log(res.data);
+
 							if (res.data.insertedId) {
                                     console.log('user added to the database')
-                                    
+                                    reset()
                                   	Swal.fire({
   title: "Good job!",
   text: "You sign up successfully",

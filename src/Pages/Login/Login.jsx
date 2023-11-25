@@ -10,14 +10,15 @@ const Login = () => {
   const {
     register,
     handleSubmit,
-    watch,
+    reset,
     formState: { errors },
   } = useForm()
   const onSubmit = (data) => {
 		console.log(data)
 		logIn(data.email, data.password)
 		.then(res => {
-				console.log(res.user);
+			console.log(res.user);
+			reset()
 				Swal.fire({
   title: "Good job!",
   text: "You log in successfully",
