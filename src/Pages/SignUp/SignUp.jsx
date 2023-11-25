@@ -2,8 +2,11 @@ import React from 'react';
 import { useForm } from "react-hook-form"
 import signupImg from '../../assets/signup.png'
 import { Link } from 'react-router-dom';
+import useAuth from '../../Hooks/useAuth';
+import Swal from 'sweetalert2';
 
 const SignUp = () => {
+	const { signUp,updateUserProfile } = useAuth();
    const {
     register,
     handleSubmit,
@@ -11,7 +14,25 @@ const SignUp = () => {
     formState: { errors },
   } = useForm()
   const onSubmit = (data) => {
-    console.log(data)
+		console.log(data)
+		signUp(data.email, data.password)
+		.then(res => {
+			console.log(res.user);
+	
+			updateUserProfile(data.name, data.photo)
+				.then(() => {
+					
+				Swal.fire({
+  title: "Good job!",
+  text: "You sign up successfully",
+  icon: "success"
+});
+			})
+				
+			})
+			.catch(err => {
+			console.log(err);
+		})
   }
   return (
     <div>
@@ -22,15 +43,13 @@ const SignUp = () => {
         </div>
         <div className=' md:w-1/2'>
           <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
-	<h1 className="text-2xl font-bold text-center">Login</h1>
+	<h1 className="text-2xl font-bold text-center">Sign up</h1>
               <form onSubmit={handleSubmit(onSubmit)} action="" className="space-y-6">
                 <div className="space-y-1 text-sm">
-			<label className="block dark:text-gray-400">Password</label>
+			<label className="block dark:text-gray-400">Name</label>
                 <input {...register("name", { required: true })}  type="text" name="name" id="name" placeholder="Name" className="w-full px-4 py-3 rounded-md dark:border-gray-700 border dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
                 {errors.name && <span className=' text-red-600'>This field is required</span>}
-			<div className="flex justify-end text-xs dark:text-gray-400">
-				<a rel="noopener noreferrer" href="#">Forgot Password?</a>
-			</div>
+			
 		</div>
 		<div className="space-y-1 text-sm">
 			<label  className="block dark:text-gray-400">Email</label>
@@ -40,11 +59,9 @@ const SignUp = () => {
 		
 		<div className="space-y-1 text-sm">
 			<label className="block dark:text-gray-400">Photo Url</label>
-                <input {...register("photo", { required: true })}  type="photo" name="photo" id="photo" placeholder="Password" className="w-full px-4 py-3 rounded-md dark:border-gray-700 border dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
+                <input {...register("photo", { required: true })}  type="photo" name="photo" id="photo" placeholder="Photo Url" className="w-full px-4 py-3 rounded-md dark:border-gray-700 border dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
                 {errors.photo && <span className=' text-red-600'>This field is required</span>}
-			<div className="flex justify-end text-xs dark:text-gray-400">
-				<a rel="noopener noreferrer" href="#">Forgot Password?</a>
-			</div>
+		
 		</div>
 		<div className="space-y-1 text-sm">
 			<label className="block dark:text-gray-400">Password</label>
@@ -78,7 +95,7 @@ const SignUp = () => {
 			</svg>
 		</button>
 	</div>
-	<p className="text-xs text-center sm:px-6 dark:text-gray-400">Don't have an account?
+	<p className="text-xs text-center sm:px-6 dark:text-gray-400">Already have an account?
 		<Link to='/login' rel="noopener noreferrer" href="#" className="underline dark:text-gray-100">Log in</Link>
 	</p>
 </div>

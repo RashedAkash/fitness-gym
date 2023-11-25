@@ -4,7 +4,7 @@ import logo from '../../assets/logo.png'
 import useAuth from '../../Hooks/useAuth';
 
 const Navbar = () => {
-  const { name } = useAuth();
+  const { user,logOut } = useAuth();
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -36,8 +36,31 @@ const Navbar = () => {
         <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
     </ul>
   </div>
-  <div className="navbar-end">
-    <NavLink to='/login' className="btn bg-[#dc1853] text-white">Login</NavLink>
+        <div className="navbar-end">
+            {
+                        user?.email ? <div className="dropdown dropdown-end">
+                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img src={user.photoURL} alt={user.displayName} />
+                                </div>
+                            </label>
+                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                                <li>
+                                    <button className="btn btn-sm  btn-ghost">{user.displayName}</button>
+
+                                </li>
+                                <li>
+                                    <button className="btn btn-sm  btn-ghost"
+                                        onClick={logOut}
+                                    >Logout</button>
+
+                                </li>
+                            </ul>
+                        </div>
+                            :
+                            <NavLink to='/login' className="btn bg-[#dc1853] text-white">Login</NavLink>
+                    }
+    
   </div>
 </div>
     </div>
