@@ -1,11 +1,14 @@
 import React from 'react';
 import { useForm } from "react-hook-form"
 import signupImg from '../../assets/signup.png'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
+import useAxiosPublic from '../../Hooks/useAxiosPublic';
 
 const SignUp = () => {
+	const axiosPublic = useAxiosPublic();
+	const navigate = useNavigate();
 	const { signUp,updateUserProfile } = useAuth();
    const {
     register,
@@ -21,12 +24,26 @@ const SignUp = () => {
 	
 			updateUserProfile(data.name, data.photo)
 				.then(() => {
-					
-				Swal.fire({
+					const userInfo = {
+                            name: data.name,
+						email: data.email,
+														role:"member"
+					}
+					axiosPublic.post('/users', userInfo)
+						.then(res => {
+							console.log(res.data);
+							if (res.data.insertedId) {
+                                    console.log('user added to the database')
+                                    
+                                  	Swal.fire({
   title: "Good job!",
   text: "You sign up successfully",
   icon: "success"
 });
+                                    navigate('/');
+                                }
+					})
+			
 			})
 				
 			})

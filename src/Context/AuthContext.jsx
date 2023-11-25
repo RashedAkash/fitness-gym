@@ -40,11 +40,13 @@ const AuthContext = ({ children }) => {
     }
   //manage user
   useEffect(() => {
-     onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
       setLoading(false);
 
-      
+      return () => {
+            return unsubscribe();
+        }
 });
   },[])
   const values = {
