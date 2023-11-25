@@ -4,7 +4,15 @@ import logo from '../../assets/logo.png'
 import useAuth from '../../Hooks/useAuth';
 
 const Navbar = () => {
-  const { user,logOut } = useAuth();
+  const { user, logOut } = useAuth();
+  const handlelogOut = () => {
+    logOut()
+    .then(() => {
+  // Sign-out successful.
+}).catch((error) => {
+  console.log(error);
+});
+  }
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -51,7 +59,7 @@ const Navbar = () => {
                                 </li>
                                 <li>
                                     <button className="btn btn-sm  btn-ghost"
-                                        onClick={logOut}
+                                        onClick={handlelogOut}
                                     >Logout</button>
 
                                 </li>
