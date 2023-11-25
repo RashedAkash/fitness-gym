@@ -51,7 +51,7 @@ const Gallery = () => {
         dataLength={dataSource.length}
         next={fetchData}
         hasMore={hasMore}
-        loader={<h4>Loading...</h4>}
+        loader={<span className="loading text-center loading-bars text-[#dc1853] loading-lg"></span>}
          endMessage={
     <p style={{ textAlign: 'center' }}>
       <b>Yay! You have seen it all</b>
