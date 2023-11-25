@@ -11,3 +11,8 @@ body{
 .slick-slide > div{
 margin: 0 10px;
 }
+.infinite-scroll-component{
+    display: 'grid';
+     grid-template-columns: 'repeat(auto-fill, minmax(300px, 1fr))';
+    gap: '10px';
+}
