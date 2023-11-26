@@ -10,6 +10,7 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
 import ErrorPage from "../Pages/Error/ErrorPage";
 import BlogDetails from "../Pages/BlogDetails/BlogDetails";
 import ClassDetails from "../Pages/Classes/ClassDetails";
+import TrainerDetails from "../Pages/Trainer/TrainerDetails";
 
 export const router = createBrowserRouter([{
   path: '/',
@@ -44,6 +45,11 @@ export const router = createBrowserRouter([{
     {
       path: '/trainer',
       element:<Trainer />
+    },
+    {
+      path: '/trainer/:id',
+      element: <TrainerDetails />,
+      loader:({params})=>fetch(`http://localhost:5000/trainer/${params.id}`)
     },
     {
       path: '/blogs/:id',

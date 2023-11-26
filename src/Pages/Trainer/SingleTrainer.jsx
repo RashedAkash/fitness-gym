@@ -6,9 +6,9 @@ const SingleTrainer = ({ tr }) => {
   const { _id, name, image, experience, availableSlots } = tr;
   return (
     <div>
-      <div className="max-w-md lg:h-[270px]  p-8 sm:flex sm:space-x-6 dark:bg-gray-900 dark:text-gray-100">
+      <div className="max-w-md hover:scale-110 transition-all duration-500 hover:rounded-2xl lg:h-[270px]  p-8 sm:flex sm:space-x-6 dark:bg-gray-900 dark:text-gray-100">
 	<div className="flex-shrink-0 w-full mb-6 h-44 sm:h-32 sm:w-32 sm:mb-0">
-		<img src={image} alt="" className="object-cover object-center w-full h-full rounded dark:bg-gray-500" />
+		<img src={image} alt="" className="object-cover object-center w-full h-full rounded dark:bg-gray-500 hover:scale-110 transition-all duration-500" />
 	</div>
 	<div className="flex flex-col  space-y-4">
 		<div>
@@ -32,7 +32,7 @@ const SingleTrainer = ({ tr }) => {
 				</svg>
 				<span className="dark:text-gray-400">+25 381 77 983</span>
             </span>
-            <NavLink >
+            <NavLink to={`/trainer/${_id}`}>
               <button className='btn mt-2 bg-[#dc1853] text-white border-none'>Know More</button>
             </NavLink>
 		</div>
