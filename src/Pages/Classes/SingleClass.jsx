@@ -1,16 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const SingleClass = ({ gymClass }) => {
   console.log(Object.keys(gymClass).join(','));
-  const { id, name, members, img, desc } = gymClass;
+  const { _id, name, members, img, desc } = gymClass;
   return (
     <div>
       
 
-<div className="w-full h-[430px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <Link to={`/classes/${_id}`}>
+          <div className="w-full h-[430px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <a href="#">
-        <img className="p-8 rounded-t-lg" src={img} alt="product image" />
+        <img className="p-8 rounded-t-lg hover:scale-110 transition-all duration-500" src={img} alt="product image" />
     </a>
     <div className="px-5 pb-5">
         <a href="#">
@@ -42,6 +43,8 @@ const SingleClass = ({ gymClass }) => {
         </div>
     </div>
 </div>
+          
+          </Link>
 
     </div>
   );
