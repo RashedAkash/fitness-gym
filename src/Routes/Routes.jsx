@@ -12,6 +12,7 @@ import BlogDetails from "../Pages/BlogDetails/BlogDetails";
 import ClassDetails from "../Pages/Classes/ClassDetails";
 import TrainerDetails from "../Pages/Trainer/TrainerDetails";
 import ApplyTrainer from "../Pages/Trainer/ApplyTrainer";
+import Pricing from "../Pages/Trainer/Pricing";
 
 export const router = createBrowserRouter([{
   path: '/',
@@ -50,6 +51,10 @@ export const router = createBrowserRouter([{
     {
       path: '/trainerApply',
       element:<ApplyTrainer />
+    },
+    {
+      path: '/pricing',
+      element:<Pricing />
     },
     {
       path: '/trainer/:id',
