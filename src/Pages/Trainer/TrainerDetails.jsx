@@ -1,16 +1,11 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import TrainerSlots from './TrainerSlots';
 
 const TrainerDetails = () => {
   const trainerData = useLoaderData();
   const { _id, name, image, experience, availableSlots } = trainerData;
-console.log('ab',availableSlots);
- const renderAvailableSlots = availableSlots?.map((slot, index) => (
-      <span key={index} className={slot ? 'slot-available' : 'slot-not-available'}>
-        Slot {index + 1}
-      </span>
-    ));
-  console.log('a', renderAvailableSlots);
+
   return (
     <div className=' '>
       <div className="max-w-md mx-auto my-10 flex justify-center  hover:scale-110 transition-all duration-500 hover:rounded-2xl lg:h-[270px]  p-8 sm:flex sm:space-x-6 dark:bg-gray-900 dark:text-gray-100">
@@ -44,12 +39,11 @@ console.log('ab',availableSlots);
             
 		</div>
 	</div>
-</div>
+      </div>
+      
       <div className="available-slots">
-              <p className='font-bold text-5xl text-[#dc1853]' >Available Time Slots:</p>
-        <p className='flex flex-col text-3xl bg-black bg-opacity-90 py-7 my-10 text-white' >
-          {renderAvailableSlots}
-              </p>
+              <TrainerSlots name={name} />
+        
             </div>
     </div>
   );
