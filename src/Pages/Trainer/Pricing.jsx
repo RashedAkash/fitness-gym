@@ -1,129 +1,21 @@
 import React from 'react';
 import Title from '../../components/Title/Title';
+import { packages } from '../../../public/price.data';
+import PriceCard from './PriceCard';
 
 const Pricing = () => {
-  return (
-    <div>
-      <section className="py-20 dark:bg-gray-800 dark:text-gray-100">
-	<div className="container px-4 mx-auto">
-		<div className="max-w-2xl mx-auto mb-16 text-center">
-			<Title heading='Choose your best plan' subheading='PRICING' />
-		</div>
-		<div className="flex flex-wrap items-stretch -mx-4">
-			<div className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
-				<div className="flex flex-grow  flex-col p-6 space-y-6 rounded shadow sm:p-8  dark:bg-white text-gray-900">
-					<div className="space-y-2">
-						<h4 className="text-2xl font-bold">SILVER</h4>
-						<span className="text-6xl font-bold">$33</span>
-					</div>
-					<p className="mt-3 text-gray-900 leadi ">This category typically offers access to the gym's facilities and equipment.</p>
-					<ul className="flex-1 mb-6 dark:text-gray-400">
-						<li className="flex  mb-2 space-x-2">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="flex-shrink-0 w-6 h-6 dark:text-[#dc1853]">
-								<path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-							</svg>
-							<span className='text-gray-900'>12 trainings</span>
-						</li>
-						<li className="flex mb-2 space-x-2">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="flex-shrink-0 w-6 h-6 dark:text-[#dc1853]">
-								<path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-							</svg>
-							<span className='text-gray-900'>Free shower & lockers</span>
-						</li>
-						<li className="flex mb-2 space-x-2">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="flex-shrink-0 w-6 h-6 dark:text-[#dc1853]">
-								<path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-							</svg>
-							<span className='text-gray-900'>Personal yoga mat</span>
-						</li>
-						<li className="flex mb-2 space-x-2">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="flex-shrink-0 w-6 h-6 dark:text-[#dc1853]">
-								<path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-							</svg>
-							<span className='text-gray-900'>Free parking</span>
-						</li>
-					</ul>
-					<button type="button" className="inline-block px-5 py-3 font-semibold tracki text-center rounded dark:bg-[#dc1853] hover:text-gray-900 text-white"> Join now</button>
-				</div>
+	
+	return (
+		<div>
+			<div className=' py-10'>
+				<Title heading='Choose your best plan' subheading='PRICING' />
 			</div>
-			<div className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
-				<div className="flex flex-grow flex-col p-6 space-y-6 rounded shadow sm:p-8  dark:bg-white text-gray-900">
-					<div className="space-y-2">
-						<h4 className="text-2xl font-bold">GOLD</h4>
-						<span className="text-6xl font-bold">$49</span>
-					</div>
-					<p className="mt-3 text-gray-900 leadi ">This category typically offers access to the gym's facilities and equipment.</p>
-					<ul className="flex-1 mb-6 dark:text-gray-400">
-						<li className="flex  mb-2 space-x-2">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="flex-shrink-0 w-6 h-6 dark:text-[#dc1853]">
-								<path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-							</svg>
-							<span className='text-gray-900'>12 trainings</span>
-						</li>
-						<li className="flex mb-2 space-x-2">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="flex-shrink-0 w-6 h-6 dark:text-[#dc1853]">
-								<path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-							</svg>
-							<span className='text-gray-900'>Free shower & lockers</span>
-						</li>
-						<li className="flex mb-2 space-x-2">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="flex-shrink-0 w-6 h-6 dark:text-[#dc1853]">
-								<path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-							</svg>
-							<span className='text-gray-900'>Personal yoga mat</span>
-						</li>
-						<li className="flex mb-2 space-x-2">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="flex-shrink-0 w-6 h-6 dark:text-[#dc1853]">
-								<path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-							</svg>
-							<span className='text-gray-900'>Free parking</span>
-						</li>
-					</ul>
-					<button type="button" className="inline-block px-5 py-3 font-semibold tracki text-center rounded dark:bg-[#dc1853] hover:text-gray-900 text-white"> Join now</button>
-				</div>
-			</div>
-			<div className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
-				<div className="flex flex-grow flex-col p-6 space-y-6 rounded shadow sm:p-8  dark:bg-white text-gray-900">
-					<div className="space-y-2">
-						<h4 className="text-2xl font-bold">DIAMOND</h4>
-						<span className="text-6xl font-bold">$79</span>
-					</div>
-					<p className="mt-3 text-gray-900 leadi ">This category typically offers access to the gym's facilities and equipment.</p>
-					<ul className="flex-1 mb-6 dark:text-gray-400">
-						<li className="flex  mb-2 space-x-2">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="flex-shrink-0 w-6 h-6 dark:text-[#dc1853]">
-								<path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-							</svg>
-							<span className='text-gray-900'>12 trainings</span>
-						</li>
-						<li className="flex mb-2 space-x-2">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="flex-shrink-0 w-6 h-6 dark:text-[#dc1853]">
-								<path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-							</svg>
-							<span className='text-gray-900'>Free shower & lockers</span>
-						</li>
-						<li className="flex mb-2 space-x-2">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="flex-shrink-0 w-6 h-6 dark:text-[#dc1853]">
-								<path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-							</svg>
-							<span className='text-gray-900'>Personal yoga mat</span>
-						</li>
-						<li className="flex mb-2 space-x-2">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="flex-shrink-0 w-6 h-6 dark:text-[#dc1853]">
-								<path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-							</svg>
-							<span className='text-gray-900'>Free parking</span>
-						</li>
-					</ul>
-					<button type="button" className="inline-block px-5 py-3 font-semibold tracki text-center rounded dark:bg-[#dc1853] hover:text-gray-900 text-white"> Join now</button>
-				</div>
-			</div>
-			
-			
-		</div>
-	</div>
-</section>
+    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 pb-16'>
+			{
+				packages?.map(pr=> <PriceCard key={pr.Package} pr={pr} />)
+			}
     </div>
+		</div>
   );
 };
 
