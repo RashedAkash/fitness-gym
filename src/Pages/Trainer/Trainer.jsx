@@ -4,6 +4,7 @@ import PageTitle from '../../components/PageTitle/PageTitle';
 import useTrainer from '../../Hooks/useTrainer';
 import Title from '../../components/Title/Title';
 import SingleTrainer from './SingleTrainer';
+import BeATrainer from './BeATrainer';
 
 
 
@@ -23,6 +24,12 @@ const Trainer = () => {
         {
           trainer?.map(tr=><SingleTrainer key={tr._id} tr={tr} />)
         }
+      </div>
+      <div >
+        <Title heading='Be a Trainer' subheading='apply now' />        
+      </div>
+      <div className=' py-10'>
+        <BeATrainer />
       </div>
     </div>
   );

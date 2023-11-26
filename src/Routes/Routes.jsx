@@ -11,6 +11,7 @@ import ErrorPage from "../Pages/Error/ErrorPage";
 import BlogDetails from "../Pages/BlogDetails/BlogDetails";
 import ClassDetails from "../Pages/Classes/ClassDetails";
 import TrainerDetails from "../Pages/Trainer/TrainerDetails";
+import ApplyTrainer from "../Pages/Trainer/ApplyTrainer";
 
 export const router = createBrowserRouter([{
   path: '/',
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([{
     {
       path: '/trainer',
       element:<Trainer />
+    },
+    {
+      path: '/trainerApply',
+      element:<ApplyTrainer />
     },
     {
       path: '/trainer/:id',
