@@ -1,8 +1,35 @@
 import React from 'react';
 import Title from '../../components/Title/Title';
+import useAuth from '../../Hooks/useAuth';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import Swal from 'sweetalert2';
 
 const PriceCard = ({ pr }) => {
-  const { Price, Package } = pr;
+	const axiosSecure = useAxiosSecure();
+	const { user } = useAuth();
+	const { Price, Package } = pr;
+	const handleJoinNow = () => {
+		const booking = {
+			email: user?.email,
+			price: Price,
+			package: Package
+		};
+
+		axiosSecure.post('/booking', booking)
+			.then(res => {
+				console.log(res.data);
+				if (res?.data?.insertedId) {
+					 Swal.fire({
+  title: "Good job!",
+  text: `${user?.displayName} you are apply successfully`,
+  icon: "success"
+});
+				}
+			})
+			.catch(err => {
+			console.log(err);
+		})
+	}
 
   return (
     <div>
@@ -43,7 +70,7 @@ const PriceCard = ({ pr }) => {
 							<span className='text-gray-900'>Free parking</span>
 						</li>
 					</ul>
-					<button type="button" className="inline-block px-5 py-3 font-semibold tracki text-center rounded dark:bg-[#dc1853] hover:text-gray-900 text-white"> Join now</button>
+					<button onClick={handleJoinNow} type="button" className="inline-block px-5 py-3 font-semibold tracki text-center rounded dark:bg-[#dc1853] hover:text-gray-900 text-white"> Join now</button>
 				</div>
 			
 			
