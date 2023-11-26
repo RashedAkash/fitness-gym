@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import img from '../../assets/ban2.jpg'
+import Title from '../../components/Title/Title';
 
 
 
@@ -39,6 +40,9 @@ const Gallery = () => {
     <div>
       <div className=' pb-16'>
 <PageTitle img={img} text='Gallery'/>
+      </div>
+      <div className='pb-10'>
+        <Title heading='Our Gallery' subheading='see image' />
       </div>
       <div >
         <InfiniteScroll
