@@ -15,6 +15,7 @@ import ApplyTrainer from "../Pages/Trainer/ApplyTrainer";
 import Pricing from "../Pages/Trainer/Pricing";
 import DashboardLayouts from "../Layouts/DashboardLayouts";
 import ShowSubscribe from "../Pages/Dashboard/ShowSubscribe";
+import AllTrainer from "../Pages/Dashboard/AllTrainer";
 
 export const router = createBrowserRouter([{
   path: '/',
@@ -79,6 +80,10 @@ export const router = createBrowserRouter([{
         {
           path: '/dashboard/sub',
           element:<ShowSubscribe />
+        },
+        {
+          path: '/dashboard/allTrainer',
+          element:<AllTrainer />
         },
       ]
     },

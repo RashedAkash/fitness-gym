@@ -1,13 +1,17 @@
 import React, { useEffect } from 'react';
 import useSub from '../../Hooks/useSub';
+import Title from '../../components/Title/Title';
 
 const ShowSubscribe = () => {
 
   const { sub } = useSub();
-  console.log(sub);
+  
   return (
     <div>
-      <div className="overflow-x-auto">
+      <div className=' py-10'>
+        <Title  heading='Your Subscribe User' subheading='subscribe user' />
+      </div>
+      <div className="overflow-x-auto pb-16">
   <table className="table">
     {/* head */}
     <thead>
