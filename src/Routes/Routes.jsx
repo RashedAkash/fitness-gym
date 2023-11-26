@@ -13,6 +13,8 @@ import ClassDetails from "../Pages/Classes/ClassDetails";
 import TrainerDetails from "../Pages/Trainer/TrainerDetails";
 import ApplyTrainer from "../Pages/Trainer/ApplyTrainer";
 import Pricing from "../Pages/Trainer/Pricing";
+import DashboardLayouts from "../Layouts/DashboardLayouts";
+import ShowSubscribe from "../Pages/Dashboard/ShowSubscribe";
 
 export const router = createBrowserRouter([{
   path: '/',
@@ -68,7 +70,17 @@ export const router = createBrowserRouter([{
     },
     {
       path: '/dashboard',
-      element:<Dashboard />
+      element: <DashboardLayouts />,
+      children: [
+        {
+          path: '/dashboard',
+          element:<Dashboard />
+        },
+        {
+          path: '/dashboard/sub',
+          element:<ShowSubscribe />
+        },
+      ]
     },
   ]
   
