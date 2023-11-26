@@ -77,8 +77,8 @@ const SignUp = () => {
 		
 		<div className="space-y-1 text-sm">
 			<label className="block dark:text-gray-400">Photo Url</label>
-                <input {...register("photo", { required: true })}  type="photo" name="photo" id="photo" placeholder="Photo Url" className="w-full px-4 py-3 rounded-md dark:border-gray-700 border dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
-                {errors.photo && <span className=' text-red-600'>This field is required</span>}
+                <input {...register("photo")}  type="photo" name="photo" id="photo" placeholder="Photo Url" className="w-full px-4 py-3 rounded-md dark:border-gray-700 border dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
+                
 		
 		</div>
 		<div className="space-y-1 text-sm">
