@@ -7,6 +7,7 @@ import Swal from 'sweetalert2'
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
 
 const Login = () => {
+	let from = location.state?.from?.pathname || "/";
 	const navigate = useNavigate();
 	const { googleSignIn, logIn } = useAuth();
 	const  axiosPublic  = useAxiosPublic();
@@ -21,6 +22,7 @@ const Login = () => {
 		logIn(data.email, data.password)
 		.then(res => {
 			console.log(res.user);
+			navigate(from, { replace: true });
 			Swal.fire({
   title: "Good job!",
   text: "You log in successfully",
@@ -38,6 +40,7 @@ const Login = () => {
   const handleGoogleSignIn = () => {
 		googleSignIn()
 			.then(res => {
+				navigate(from, { replace: true });
 				console.log(res.user);
 				const userInfo = {
 				name:res?.user?.displayName,
@@ -52,7 +55,7 @@ const Login = () => {
   text: "You log in successfully",
   icon: "success"
 });
-                navigate('/');
+                 
             })
                 
             })

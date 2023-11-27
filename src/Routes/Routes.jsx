@@ -18,6 +18,7 @@ import ShowSubscribe from "../Pages/Dashboard/ShowSubscribe";
 import AllTrainer from "../Pages/Dashboard/AllTrainer";
 import AppliedTrainer from "../Pages/Dashboard/AppliedTrainer";
 import Allusers from "../Pages/Dashboard/Allusers";
+import PrivateRoute from "./PrivateRoutes";
 
 
 export const router = createBrowserRouter([{
@@ -56,7 +57,7 @@ export const router = createBrowserRouter([{
     },
     {
       path: '/trainerApply',
-      element:<ApplyTrainer />
+      element:<PrivateRoute><ApplyTrainer /></PrivateRoute>
     },
     {
       path: '/pricing',
@@ -64,7 +65,7 @@ export const router = createBrowserRouter([{
     },
     {
       path: '/trainer/:id',
-      element: <TrainerDetails />,
+      element: <PrivateRoute><TrainerDetails /></PrivateRoute>,
       loader:({params})=>fetch(`http://localhost:5000/trainer/${params.id}`)
     },
     {
