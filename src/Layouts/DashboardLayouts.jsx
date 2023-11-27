@@ -4,11 +4,11 @@ import { Outlet } from 'react-router-dom';
 
 const DashboardLayouts = () => {
   return (
-    <div className=' grid grid-cols-12'>
-      <div className=' col-span-3'>
+    <div className=' md:grid md:grid-cols-12'>
+      <div className=' md:col-span-3'>
         <Sidebar />
       </div>
-      <div className=' col-span-9'>
+      <div className=' md:col-span-9'>
         <Outlet />
       </div>
 
