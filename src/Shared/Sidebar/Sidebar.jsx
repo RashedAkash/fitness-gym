@@ -4,7 +4,8 @@ import {  FaChalkboardTeacher, FaHospitalUser, FaHome, FaUsers, FaUsersCog  } fr
 import { Link, NavLink } from 'react-router-dom';
 
 const Sidebar = () => {
-  const { user } = useAuth();
+	const { user } = useAuth();
+	const isAdmin = true;
   return (
     <div>
       <div className="h-full p-3 space-y-2 w-60 dark:bg-gray-900 dark:text-gray-100">
@@ -18,7 +19,8 @@ const Sidebar = () => {
 		</div>
 	</div>
 	<div className="divide-y dark:divide-gray-700">
-		<ul className="pt-2 pb-4 space-y-1 text-sm">
+					{
+						isAdmin && <ul className="pt-2 pb-4 space-y-1 text-sm">
 			<li className="dark:bg-gray-800 dark:text-gray-50">
 				<a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-5 h-5 fill-current dark:text-gray-400">
@@ -54,6 +56,7 @@ const Sidebar = () => {
 			
 			
 					</ul>
+		}
 
 					{/* // commomn */}
 
