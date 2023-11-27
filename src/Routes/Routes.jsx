@@ -17,6 +17,7 @@ import DashboardLayouts from "../Layouts/DashboardLayouts";
 import ShowSubscribe from "../Pages/Dashboard/ShowSubscribe";
 import AllTrainer from "../Pages/Dashboard/AllTrainer";
 import AppliedTrainer from "../Pages/Dashboard/AppliedTrainer";
+import Allusers from "../Pages/Dashboard/Allusers";
 
 
 export const router = createBrowserRouter([{
@@ -79,6 +80,7 @@ export const router = createBrowserRouter([{
           path: '/dashboard',
           element:<Dashboard />
         },
+        //admin
         {
           path: '/dashboard/sub',
           element:<ShowSubscribe />
@@ -90,6 +92,10 @@ export const router = createBrowserRouter([{
         {
           path: '/dashboard/appliedTrainer',
           element:<AppliedTrainer />
+        },
+        {
+          path: '/dashboard/allUsers',
+          element:<Allusers />
         },
       ]
     },

@@ -1,12 +1,15 @@
 import React from 'react';
 import login from '../../assets/login.png'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form"
 import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2'
+import useAxiosPublic from '../../Hooks/useAxiosPublic';
 
 const Login = () => {
-  const { googleSignIn,logIn } = useAuth();
+	const navigate = useNavigate();
+	const { googleSignIn, logIn } = useAuth();
+	const  axiosPublic  = useAxiosPublic();
   const {
     register,
     handleSubmit,
@@ -18,12 +21,12 @@ const Login = () => {
 		logIn(data.email, data.password)
 		.then(res => {
 			console.log(res.user);
-			reset()
-				Swal.fire({
+			Swal.fire({
   title: "Good job!",
   text: "You log in successfully",
   icon: "success"
 });
+			reset()
 			})
 			.catch(err => {
 			console.log(err);
@@ -36,12 +39,24 @@ const Login = () => {
 		googleSignIn()
 			.then(res => {
 				console.log(res.user);
-				Swal.fire({
+				const userInfo = {
+				name:res?.user?.displayName,
+				email: res?.user?.email,
+				role:"member"
+			}
+			axiosPublic.post('/users', userInfo)
+				.then(res =>{
+					console.log(res.data);
+					Swal.fire({
   title: "Good job!",
   text: "You log in successfully",
   icon: "success"
 });
-			})
+                navigate('/');
+            })
+                
+            })
+				
 			.catch(err => {
 			console.log(err);
 		})

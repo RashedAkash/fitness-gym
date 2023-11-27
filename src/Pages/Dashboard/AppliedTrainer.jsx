@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import useNewTrainer from '../../Hooks/useNewTrainer';
 import { FaEye } from 'react-icons/fa';
 import { set } from 'react-hook-form';
+import Title from '../../components/Title/Title';
 
 const AppliedTrainer = () => {
   const { newTrainer } = useNewTrainer();
@@ -17,7 +18,9 @@ const AppliedTrainer = () => {
   }
   return (
     <div>
-      <div></div>
+      <div className=' py-10'>
+        <Title heading='Your Applied Trainer' subheading='applied trainer' />
+      </div>
       <div className="overflow-x-auto pb-16">
   <table className="table">
     {/* head */}
