@@ -123,12 +123,12 @@ const AppliedTrainer = () => {
         </td>
         
                 <td>{ tr?.age} years</td>
-                <td>{ tr?.skills} years</td>
+                <td>{ tr?.skills} </td>
                 <td>{
                   tr?.role ==='trainer' ? <button className=' btn btn-success'>Trainer</button>: <button className='btn btn-accent'>Applied Trainer</button>
                 }
                 </td>
-                <td>{ tr?.email} years</td>
+                <td>{ tr?.email} </td>
         <th>
                   <button onClick={()=>handleClick(tr)} className="btn btn-ghost bg-[#dc1853] text-white btn-xs">
                     <FaEye />

@@ -19,6 +19,7 @@ import AllTrainer from "../Pages/Dashboard/AllTrainer";
 import AppliedTrainer from "../Pages/Dashboard/AppliedTrainer";
 import Allusers from "../Pages/Dashboard/Allusers";
 import PrivateRoute from "./PrivateRoutes";
+import ManageMember from "../Pages/Dashboard/ManageMember";
 
 
 export const router = createBrowserRouter([{
@@ -97,6 +98,11 @@ export const router = createBrowserRouter([{
         {
           path: '/dashboard/allUsers',
           element:<Allusers />
+        },
+        //trainer
+        {
+          path: '/dashboard/mngMember',
+          element:<ManageMember />
         },
       ]
     },

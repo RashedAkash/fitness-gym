@@ -4,11 +4,13 @@ import Title from '../../components/Title/Title';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
+import useAuth from '../../Hooks/useAuth';
 
 
 const IMG_HOSTING_KEY = import.meta.env.VITE_IMG_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${IMG_HOSTING_KEY}`
 const ApplyTrainer = () => {
+  const { user } = useAuth();
   const axiosPublic = useAxiosPublic();
   const axiosSecure = useAxiosSecure();
    const {
@@ -31,7 +33,7 @@ const ApplyTrainer = () => {
       // now send the menu item data to the server with the image url
       const info = {
         name: data.name,
-        email: data.email,
+        email: user?.email,
         age: data.age,
         day: data.day,
         week: data.week,
@@ -71,10 +73,10 @@ const ApplyTrainer = () => {
                 <input {...register("name")} id="name" type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"/>
             </div>
 
-            <div>
+            {/* <div>
                 <label className="text-gray-700 dark:text-gray-200" >Email Address</label>
                 <input {...register("email")} id="emailAddress" type="email" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-white dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"/>
-            </div>
+            </div> */}
             <div>
                 <label className="text-gray-700 dark:text-gray-200" >About you</label>
                 <input {...register("about")} id="aboutAddress" type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-white dark:text-gray-900 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"/>
