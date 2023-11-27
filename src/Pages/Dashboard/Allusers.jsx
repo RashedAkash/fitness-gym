@@ -18,13 +18,13 @@ const Allusers = () => {
   showCancelButton: true,
   confirmButtonColor: "#3085d6",
   cancelButtonColor: "#d33",
-  confirmButtonText: "Yes, delete it!"
+  confirmButtonText: "Yes, Revert it!"
 }).then((result) => {
   if (result.isConfirmed) {
     if (res.data.modifiedCount> 0) {
        Swal.fire({
-      title: "Deleted!",
-      text: "Your file has been deleted.",
+      title: "Congratulation!",
+      text: "Your file has been changed.",
       icon: "success"
     });
     }

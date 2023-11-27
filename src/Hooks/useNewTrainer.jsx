@@ -4,7 +4,7 @@ import useAxiosPublic from './useAxiosPublic';
 
 const useNewTrainer = () => {
   const axiosPublic = useAxiosPublic();
-const {  data:newTrainer } = useQuery({
+const {  data:newTrainer,refetch } = useQuery({
   queryKey: ['newTrainer'],
   queryFn: async () => {
     const data = await axiosPublic.get('/trainerInfo')
@@ -12,7 +12,7 @@ const {  data:newTrainer } = useQuery({
     
   },
 })
-  return {newTrainer}
+  return {newTrainer,refetch}
 };
 
 export default useNewTrainer;

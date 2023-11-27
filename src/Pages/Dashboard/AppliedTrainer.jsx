@@ -3,8 +3,13 @@ import useNewTrainer from '../../Hooks/useNewTrainer';
 import { FaEye } from 'react-icons/fa';
 import { set } from 'react-hook-form';
 import Title from '../../components/Title/Title';
+import Swal from 'sweetalert2';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import useAuth from '../../Hooks/useAuth';
 
 const AppliedTrainer = () => {
+  const AxiosSecure = useAxiosSecure();
+  const { user } = useAuth();
   const { newTrainer } = useNewTrainer();
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState('');
@@ -15,6 +20,34 @@ const AppliedTrainer = () => {
   };
   const handleClose = () => {
     setShowModal(false)
+  };
+
+  const handleMakeTrainer = (tr) => {
+    console.log(tr._id);
+     AxiosSecure.patch(`/trainerInfo/trainer/${tr._id}`)
+      .then(res => {
+        console.log(res.data);
+        Swal.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, Revert it!"
+}).then((result) => {
+  if (result.isConfirmed) {
+    if (res.data.modifiedCount> 0) {
+       Swal.fire({
+      title: "Congratulation!",
+      text: "Your file has been changed.",
+      icon: "success"
+    });
+    }
+   
+  }
+});
+    })
   }
   return (
     <div>
@@ -30,6 +63,7 @@ const AppliedTrainer = () => {
         <th>Name</th>
         <th>Age</th>
         <th>Skills</th>
+        <th>Status</th>
         
         <th>Email</th>
       </tr>
@@ -56,6 +90,10 @@ const AppliedTrainer = () => {
         
                 <td>{ tr?.age} years</td>
                 <td>{ tr?.skills} years</td>
+                <td>{
+                  tr?.role ==='trainer' ? <button className=' btn btn-success'>Trainer</button>: <button className='btn btn-accent'>Applied Trainer</button>
+                }
+                </td>
                 <td>{ tr?.email} years</td>
         <th>
                   <button onClick={()=>handleClick(tr)} className="btn btn-ghost bg-[#dc1853] text-white btn-xs">
@@ -72,11 +110,11 @@ const AppliedTrainer = () => {
                       <h1>{ modalContent.skills}</h1>
                       </div>
                       <div>
-                        <button className=' btn btn-success mr-2'>Confirmation</button>
-                        <button className='btn btn-warning'>Reject</button>
+                        <button onClick={()=>handleMakeTrainer(tr)} className=' text-white btn btn-success mr-2'>Confirmation</button>
+                        <button className='btn btn-warning text-white'>Reject</button>
                         </div>
                         <div>
-                          <button  onClick={handleClose} className='btn flex justify-end bg-[#dc1853]'>Close</button>
+                          <button  onClick={handleClose} className='btn flex justify-end text-white bg-[#dc1853]'>Close</button>
                         </div>
                       </div>
                       </div>
