@@ -6,6 +6,9 @@ import Title from '../../components/Title/Title';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import useAuth from '../../Hooks/useAuth';
+import emailjs from '@emailjs/browser'
+
+ const rejectionMessage = `Dear Trainer,We regret to inform you that your application has been rejected at this time. Thank you for your interest.Sincerely,The Team`;
 
 const AppliedTrainer = () => {
   const AxiosSecure = useAxiosSecure();
@@ -13,6 +16,37 @@ const AppliedTrainer = () => {
   const { newTrainer } = useNewTrainer();
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState('');
+
+  //email js send email
+  const sendRejectionEmail = (userEmail) => {
+    const serviceId = 'service_zv4ir8a'; // Replace with your EmailJS service ID
+    const templateId = 'template_3r7r9ww'; // Replace with your EmailJS template ID
+    const userId = 'VjgLXv1xV-qLzaGnj'; // Replace with your EmailJS user ID
+
+    emailjs.send(serviceId, templateId, {
+      to_email: userEmail,
+       message: rejectionMessage,
+      // Other template variables if needed
+    }, userId)
+      .then((response) => {
+        console.log('Email sent!', response.status, response.text);
+        // Perform further actions upon successful email sending (if needed)
+      })
+      .catch((error) => {
+        console.error('Email failed to send:', error);
+        // Handle errors if the email fails to send
+      })
+  };
+
+     //handle reject
+  const handleReject = () => {
+    sendRejectionEmail();
+    Swal.fire({
+      title: "Congratulation!",
+      text: "Your email has been send.",
+      icon: "success"
+    });
+  }
   const handleClick = (tr) => {
     console.log(tr);
     setShowModal(true);
@@ -111,7 +145,7 @@ const AppliedTrainer = () => {
                       </div>
                       <div>
                         <button onClick={()=>handleMakeTrainer(tr)} className=' text-white btn btn-success mr-2'>Confirmation</button>
-                        <button className='btn btn-warning text-white'>Reject</button>
+                        <button onClick={()=>handleReject(user?.email)} className='btn btn-warning text-white'>Reject</button>
                         </div>
                         <div>
                           <button  onClick={handleClose} className='btn flex justify-end text-white bg-[#dc1853]'>Close</button>
