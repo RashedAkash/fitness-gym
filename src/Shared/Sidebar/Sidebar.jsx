@@ -1,6 +1,6 @@
 import React from 'react';
 import useAuth from '../../Hooks/useAuth';
-import {  FaChalkboardTeacher, FaHospitalUser, FaHome, FaUsers, FaUsersCog  } from "react-icons/fa";
+import {  FaChalkboardTeacher, FaHospitalUser, FaHome, FaUsers, FaUsersCog, FaAd  } from "react-icons/fa";
 import { Link, NavLink } from 'react-router-dom';
 import useNewTrainer from '../../Hooks/useNewTrainer';
 
@@ -76,9 +76,9 @@ const Sidebar = () => {
 				</NavLink>
 			</li>
 			<li>
-				<NavLink rel="noopener noreferrer" to="/dashboard/allTrainer" className="flex items-center p-2 space-x-3 rounded-md">
-					<FaChalkboardTeacher />
-					<span>All Trainer</span>
+				<NavLink rel="noopener noreferrer" to="/dashboard/addClass" className="flex items-center p-2 space-x-3 rounded-md">
+					<FaAd />
+					<span>Add new Class</span>
 				</NavLink>
 			</li>
 			<li>

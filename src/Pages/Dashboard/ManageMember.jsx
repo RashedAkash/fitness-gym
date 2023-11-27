@@ -39,7 +39,7 @@ const ManageMember = () => {
         <Title heading='Manage member' subheading='member' />
       </div>
       <div>
-<div className="overflow-x-auto">
+<div className="overflow-x-auto pb-16">
   <table className="table">
     {/* head */}
     <thead>

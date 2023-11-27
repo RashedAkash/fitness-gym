@@ -20,6 +20,7 @@ import AppliedTrainer from "../Pages/Dashboard/AppliedTrainer";
 import Allusers from "../Pages/Dashboard/Allusers";
 import PrivateRoute from "./PrivateRoutes";
 import ManageMember from "../Pages/Dashboard/ManageMember";
+import AddClass from "../Pages/Dashboard/AddClass";
 
 
 export const router = createBrowserRouter([{
@@ -103,6 +104,14 @@ export const router = createBrowserRouter([{
         {
           path: '/dashboard/mngMember',
           element:<ManageMember />
+        },
+        {
+          path: '/dashboard/mngMember',
+          element:<ManageMember />
+        },
+        {
+          path: '/dashboard/addClass',
+          element:<AddClass />
         },
       ]
     },
