@@ -1,10 +1,38 @@
 import React from 'react';
 import Title from '../../components/Title/Title';
 import useUsers from '../../Hooks/useUsers';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import Swal from 'sweetalert2';
 
 const Allusers = () => {
+  const AxiosSecure = useAxiosSecure();
   const { users } = useUsers();
-  console.log(users);
+  const handleMakeAdmin = (user) => {
+    AxiosSecure.patch(`/users/admin/${user._id}`)
+      .then(res => {
+        console.log(res.data);
+        Swal.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, delete it!"
+}).then((result) => {
+  if (result.isConfirmed) {
+    if (res.data.modifiedCount> 0) {
+       Swal.fire({
+      title: "Deleted!",
+      text: "Your file has been deleted.",
+      icon: "success"
+    });
+    }
+   
+  }
+});
+    })
+  }
   return (
     <div>
       <div className='py-10'>
@@ -36,7 +64,12 @@ const Allusers = () => {
         </td>
                   <td className=' uppercase'>{ user.name}</td>
                   <td >{ user.email}</td>
-                  <td className=' btn bg-[#dc1853] text-white uppercase'>{ user.role}</td>
+                  <td>
+                    {
+                      user?.role === 'admin' ?  <button    className=' btn bg-[green] text-white uppercase'>Admin</button> :
+                        <button  onClick={() => handleMakeAdmin(user)}  className=' btn bg-[#dc1853] text-white uppercase'>{user.role}</button>
+                    }
+                  </td>
        
       </tr>)
       }
