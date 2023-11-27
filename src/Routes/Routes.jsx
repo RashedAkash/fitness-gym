@@ -21,6 +21,8 @@ import Allusers from "../Pages/Dashboard/Allusers";
 import PrivateRoute from "./PrivateRoutes";
 import ManageMember from "../Pages/Dashboard/ManageMember";
 import AddClass from "../Pages/Dashboard/AddClass";
+import AddNewForum from "../Pages/Dashboard/AddNewForum";
+import RecomandedCls from "../Pages/Dashboard/RecomandedCls";
 
 
 export const router = createBrowserRouter([{
@@ -112,6 +114,15 @@ export const router = createBrowserRouter([{
         {
           path: '/dashboard/addClass',
           element:<AddClass />
+        },
+        {
+          path: '/dashboard/addForum',
+          element:<AddNewForum />
+        },
+        //user
+        {
+          path: '/dashboard/recClass',
+          element:<RecomandedCls />
         },
       ]
     },
