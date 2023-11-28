@@ -13,7 +13,7 @@ import emailjs from '@emailjs/browser'
 const AppliedTrainer = () => {
   const AxiosSecure = useAxiosSecure();
   const { user } = useAuth();
-  const { newTrainer } = useNewTrainer();
+  const { newTrainer,refetch } = useNewTrainer();
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState('');
 
@@ -58,7 +58,7 @@ const AppliedTrainer = () => {
 
   const handleMakeTrainer = (tr) => {
     console.log(tr._id);
-     AxiosSecure.patch(`/trainerInfo/trainer/${tr._id}`)
+     AxiosSecure.patch(`/users/trainer/${user?.email}`)
       .then(res => {
         console.log(res.data);
         Swal.fire({
@@ -81,6 +81,15 @@ const AppliedTrainer = () => {
    
   }
 });
+      })
+    
+    AxiosSecure.delete(`/trainerInfo/${tr._id}`)
+      .then(res => {
+        console.log(res.data);
+        refetch()
+      })
+      .catch(err => {
+      console.log(err);
     })
   }
   return (
@@ -144,7 +153,7 @@ const AppliedTrainer = () => {
                       <h1>{ modalContent.skills}</h1>
                       </div>
                       <div>
-                        <button onClick={()=>handleMakeTrainer(tr)} className=' text-white btn btn-success mr-2'>Confirmation</button>
+                        <button onClick={()=>handleMakeTrainer(tr)} className=' text-white btn btn-success mr-2'>Confirm</button>
                         <button onClick={()=>handleReject(user?.email)} className='btn btn-warning text-white'>Reject</button>
                         </div>
                         <div>
