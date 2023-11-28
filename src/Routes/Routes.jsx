@@ -24,6 +24,7 @@ import AddClass from "../Pages/Dashboard/AddClass";
 import AddNewForum from "../Pages/Dashboard/AddNewForum";
 import RecomandedCls from "../Pages/Dashboard/RecomandedCls";
 import ProfileSetting from "../Pages/Dashboard/ProfileSetting";
+import Community from "../Pages/Community/Community";
 
 
 export const router = createBrowserRouter([{
@@ -46,6 +47,10 @@ export const router = createBrowserRouter([{
     {
       path: '/signUp',
       element:<SignUp />
+    },
+    {
+      path: '/forum',
+      element:<Community />
     },
     {
       path: '/classes',

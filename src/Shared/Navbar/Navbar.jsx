@@ -27,7 +27,8 @@ const Navbar = () => {
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/gallery'>Gallery</NavLink></li>
         <li><NavLink to='/classes'>Classes</NavLink></li>
-        <li><NavLink to='/trainer'>Trainer</NavLink></li>       
+              <li><NavLink to='/trainer'>Trainer</NavLink></li> 
+        <li><NavLink to='/forum'>Forum</NavLink></li>       
         <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
         
       </ul>
@@ -43,6 +44,7 @@ const Navbar = () => {
         <li><NavLink to='/gallery'>Gallery</NavLink></li>
         <li><NavLink to='/classes'>Classes</NavLink></li>
         <li><NavLink to='/trainer'>Trainer</NavLink></li>       
+        <li><NavLink to='/forum'>Forum</NavLink></li>       
         <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
     </ul>
   </div>
