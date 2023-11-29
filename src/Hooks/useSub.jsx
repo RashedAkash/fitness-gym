@@ -1,13 +1,14 @@
 import React from 'react';
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from './useAxiosPublic';
+import useAxiosSecure from './useAxiosSecure';
 
 const useSub = () => {
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
 const {  data:sub } = useQuery({
   queryKey: ['sub'],
   queryFn: async () => {
-    const data = await axiosPublic.get('/subUser')
+    const data = await axiosSecure.get('/subUser')
     return data.data
     
   },

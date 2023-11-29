@@ -97,19 +97,23 @@ export const router = createBrowserRouter([{
         //admin
         {
           path: '/dashboard/sub',
-          element:  <AdminRoute><ShowSubscribe /></AdminRoute>
+          // element:  <AdminRoute><ShowSubscribe /></AdminRoute>,
+          element: <ShowSubscribe />
         },
         {
           path: '/dashboard/allTrainer',
-          element:<AdminRoute><AllTrainer /></AdminRoute>
+          // element:<AdminRoute><AllTrainer /></AdminRoute>
+          element:<AllTrainer />
         },
         {
           path: '/dashboard/appliedTrainer',
-          element:<AdminRoute><AppliedTrainer /></AdminRoute>
+          // element:<AdminRoute><AppliedTrainer /></AdminRoute>
+          element:<AppliedTrainer />
         },
         {
           path: '/dashboard/allUsers',
-          element:<AdminRoute><Allusers /></AdminRoute>
+          // element:<AdminRoute><Allusers /></AdminRoute>
+          element:<Allusers />
         },
         //trainer
         {
@@ -119,7 +123,7 @@ export const router = createBrowserRouter([{
         
         {
           path: '/dashboard/addClass',
-          element:<TrainerRoute><AddClass /></TrainerRoute>
+          element:<AddClass />
         },
         {
           path: '/dashboard/addForum',
