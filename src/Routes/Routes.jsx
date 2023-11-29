@@ -97,23 +97,23 @@ export const router = createBrowserRouter([{
         //admin
         {
           path: '/dashboard/sub',
-          // element:  <AdminRoute><ShowSubscribe /></AdminRoute>,
-          element: <ShowSubscribe />
+           element:  <AdminRoute><ShowSubscribe /></AdminRoute>,
+          // element: <ShowSubscribe />
         },
         {
           path: '/dashboard/allTrainer',
-          // element:<AdminRoute><AllTrainer /></AdminRoute>
-          element:<AllTrainer />
+            element:<AdminRoute><AllTrainer /></AdminRoute>
+          //  element:<AllTrainer />
         },
         {
           path: '/dashboard/appliedTrainer',
-          // element:<AdminRoute><AppliedTrainer /></AdminRoute>
-          element:<AppliedTrainer />
+           element:<AdminRoute><AppliedTrainer /></AdminRoute>
+          // element:<AppliedTrainer />
         },
         {
           path: '/dashboard/allUsers',
-          // element:<AdminRoute><Allusers /></AdminRoute>
-          element:<Allusers />
+           element:<AdminRoute><Allusers /></AdminRoute>
+          // element:<Allusers />
         },
         //trainer
         {
@@ -146,6 +146,64 @@ export const router = createBrowserRouter([{
     },
   ]
   
-}
+},
+  // {
+  //     path: 'dashboard',
+  //     element: <DashboardLayouts />,
+  //     children: [
+  //       {
+  //         path: 'dashboard',
+  //         element:<PrivateRoute><Dashboard /></PrivateRoute>
+  //       },
+  //       //admin
+  //       {
+  //         path: 'sub',
+  //         // element:  <AdminRoute><ShowSubscribe /></AdminRoute>,
+  //         element: <ShowSubscribe />
+  //       },
+  //       {
+  //         path: 'allTrainer',
+  //          element:<AdminRoute><AllTrainer /></AdminRoute>
+  //         // element:<AllTrainer />
+  //       },
+  //       {
+  //         path: 'appliedTrainer',
+  //         // element:<AdminRoute><AppliedTrainer /></AdminRoute>
+  //         element:<AppliedTrainer />
+  //       },
+  //       {
+  //         path: 'allUsers',
+  //         // element:<AdminRoute><Allusers /></AdminRoute>
+  //         element:<Allusers />
+  //       },
+  //       //trainer
+  //       {
+  //         path: 'mngMember',
+  //         element:<ManageMember />
+  //       },
+        
+  //       {
+  //         path: 'addClass',
+  //         element:<AddClass />
+  //       },
+  //       {
+  //         path: 'addForum',
+  //         element:<AddNewForum />
+  //       },
+  //       //user
+  //       {
+  //         path: 'recClass',
+  //         element:<RecomandedCls />
+  //       },
+  //       {
+  //         path: 'profileSettings',
+  //         element:<ProfileSetting />
+  //       },
+  //       {
+  //         path: 'activityLog',
+  //         element:<ActivityLog />
+  //       },
+  //     ]
+  //   },
   
 ])

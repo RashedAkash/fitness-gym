@@ -44,17 +44,19 @@ const AuthContext = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
-      setLoading(false);
+      
       if (user) {
    
         AxiosPublic.post('/jwt', { email: user?.email })
           .then(res => {
           if (res.data.token) {
-            localStorage.setItem('token',res.data.token)
+            localStorage.setItem('token', res.data.token)
+            setLoading(false);
           }
         })
 } else {
-  localStorage.removeItem('token')
+        localStorage.removeItem('token')
+        setLoading(false);
 }
       return () => {
             return unsubscribe();
