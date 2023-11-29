@@ -26,6 +26,8 @@ import RecomandedCls from "../Pages/Dashboard/RecomandedCls";
 import ProfileSetting from "../Pages/Dashboard/ProfileSetting";
 import Community from "../Pages/Community/Community";
 import AdminRoute from "./AdminRoute";
+import TrainerRoute from "./TrainerRoute";
+import ActivityLog from "../Pages/Dashboard/ActivityLog";
 
 
 export const router = createBrowserRouter([{
@@ -90,37 +92,34 @@ export const router = createBrowserRouter([{
       children: [
         {
           path: '/dashboard',
-          element:<Dashboard />
+          element:<PrivateRoute><Dashboard /></PrivateRoute>
         },
         //admin
         {
           path: '/dashboard/sub',
-          element:  <ShowSubscribe />
+          element:  <AdminRoute><ShowSubscribe /></AdminRoute>
         },
         {
           path: '/dashboard/allTrainer',
-          element:<AllTrainer />
+          element:<AdminRoute><AllTrainer /></AdminRoute>
         },
         {
           path: '/dashboard/appliedTrainer',
-          element:<AppliedTrainer />
+          element:<AdminRoute><AppliedTrainer /></AdminRoute>
         },
         {
           path: '/dashboard/allUsers',
-          element:<Allusers />
+          element:<AdminRoute><Allusers /></AdminRoute>
         },
         //trainer
         {
           path: '/dashboard/mngMember',
           element:<ManageMember />
         },
-        {
-          path: '/dashboard/mngMember',
-          element:<ManageMember />
-        },
+        
         {
           path: '/dashboard/addClass',
-          element:<AddClass />
+          element:<TrainerRoute><AddClass /></TrainerRoute>
         },
         {
           path: '/dashboard/addForum',
@@ -134,6 +133,10 @@ export const router = createBrowserRouter([{
         {
           path: '/dashboard/profileSettings',
           element:<ProfileSetting />
+        },
+        {
+          path: '/dashboard/activityLog',
+          element:<ActivityLog />
         },
       ]
     },

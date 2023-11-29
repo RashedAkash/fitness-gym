@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import useAuth from '../../Hooks/useAuth';
-import {  FaChalkboardTeacher, FaHospitalUser, FaHome, FaUsers, FaUsersCog, FaAd, FaPeopleArrows  } from "react-icons/fa";
+import {  FaChalkboardTeacher, FaHospitalUser, FaHome, FaUsers, FaUsersCog, FaAd, FaPeopleArrows, FaListUl  } from "react-icons/fa";
 import { Link, NavLink } from 'react-router-dom';
 import useNewTrainer from '../../Hooks/useNewTrainer';
 import useAdmin from '../../Hooks/useAdmin';
 import useVerifyTrainer from '../../Hooks/useVerifyTrainer';
+import useMember from '../../Hooks/useMember';
+import useIsMember from '../../Hooks/useIsMember';
 
 
 const Sidebar = () => {
@@ -15,7 +17,8 @@ const Sidebar = () => {
 		
 	const {isAdmin} = useAdmin();
 	const { isTrainer } = useVerifyTrainer();
-	console.log(isTrainer,isAdmin);
+	const { isMember } = useIsMember()
+	console.log(isTrainer,isAdmin ,isMember);
   return (
     <div>
       <div className="h-full p-3 space-y-2 w-60 dark:bg-gray-900 dark:text-gray-100">
@@ -96,13 +99,19 @@ const Sidebar = () => {
 				</NavLink>
 			</li>
 			
-		
+			<li>
+				<NavLink rel="noopener noreferrer" to="/dashboard/addForum" className="flex items-center p-2 space-x-3 rounded-md">
+				<FaPeopleArrows />
+					<span> Add new Forum</span>
+				</NavLink>
+			</li>
 			
 			
 					</ul>
 					}
 					
-						<ul className="pt-2 pb-4 space-y-1 text-sm">
+					{
+						isMember && <ul className="pt-2 pb-4 space-y-1 text-sm">
 			<li className="dark:bg-gray-800 dark:text-gray-50">
 				<a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-5 h-5 fill-current dark:text-gray-400">
@@ -127,20 +136,16 @@ const Sidebar = () => {
 				</NavLink>
 			</li>
 			<li>
-				<NavLink rel="noopener noreferrer" to="/dashboard/addForum" className="flex items-center p-2 space-x-3 rounded-md">
-				<FaPeopleArrows />
-					<span> Add new Forum</span>
+				<NavLink rel="noopener noreferrer" to="/dashboard/activityLog" className="flex items-center p-2 space-x-3 rounded-md">
+				<FaListUl />
+					<span>Activity log</span>
 				</NavLink>
 			</li>
-			<li>
-				<NavLink rel="noopener noreferrer" to="/dashboard/allUsers" className="flex items-center p-2 space-x-3 rounded-md">
-				<FaUsers />
-					<span>All User</span>
-				</NavLink>
-			</li>
+			
 			
 			
 					</ul>
+						}
 					
 
 					{/* // commomn */}
