@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const SingleForum = ({ fr }) => {
-  console.log(Object.keys(fr).join(','));
+  const [votes, setVotes] = useState(0);
   const { _id, number, title, desc } = fr;
+  const handleUpvote = () => {
+    setVotes(votes + 1)
+  };
+  const handleDownvote = () => {
+    setVotes(votes-1)
+  }
   return (
     <div>
       <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-white dark:text-gray-900">
@@ -11,7 +17,12 @@ const SingleForum = ({ fr }) => {
 		
           <h2 className="mb-1 text-xl font-semibold">Number : {number }</h2>
           <h2 className="mb-1 text-xl font-semibold">{title }</h2>
-          <p className="text-sm dark:text-gray-800">{desc }</p>
+          <p className="text-sm dark:text-gray-800">{desc}</p>
+           <h2 className="mb-1 text-xl font-semibold">Vote count : {votes }</h2>
+          <div className=' flex justify-between  mt-3'>
+            <button onClick={handleUpvote} className=' text-white bg-[#dc1853] btn'>Upvote</button>
+            <button onClick={handleDownvote}   className=' text-white bg-[#dc1853] btn'>Downvote</button>
+          </div>
 	</div>
 	<div className="flex flex-wrap justify-between">
 		<div className="space-x-2">

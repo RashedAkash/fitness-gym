@@ -3,6 +3,9 @@ import useAuth from '../../Hooks/useAuth';
 import {  FaChalkboardTeacher, FaHospitalUser, FaHome, FaUsers, FaUsersCog, FaAd, FaPeopleArrows  } from "react-icons/fa";
 import { Link, NavLink } from 'react-router-dom';
 import useNewTrainer from '../../Hooks/useNewTrainer';
+import useAdmin from '../../Hooks/useAdmin';
+import useVerifyTrainer from '../../Hooks/useVerifyTrainer';
+
 
 const Sidebar = () => {
 	const { newTrainer } = useNewTrainer();
@@ -10,8 +13,9 @@ const Sidebar = () => {
 
 	
 		
-	const isAdmin = true;
-	const isTrainer = true;
+	const {isAdmin} = useAdmin();
+	const { isTrainer } = useVerifyTrainer();
+	console.log(isTrainer,isAdmin);
   return (
     <div>
       <div className="h-full p-3 space-y-2 w-60 dark:bg-gray-900 dark:text-gray-100">
@@ -91,18 +95,8 @@ const Sidebar = () => {
 					<span>Add new Class</span>
 				</NavLink>
 			</li>
-			<li>
-				<NavLink rel="noopener noreferrer" to="/dashboard/addForum" className="flex items-center p-2 space-x-3 rounded-md">
-				<FaPeopleArrows />
-					<span> Add new Forum</span>
-				</NavLink>
-			</li>
-			<li>
-				<NavLink rel="noopener noreferrer" to="/dashboard/allUsers" className="flex items-center p-2 space-x-3 rounded-md">
-				<FaUsers />
-					<span>All Users</span>
-				</NavLink>
-			</li>
+			
+		
 			
 			
 					</ul>
@@ -141,7 +135,7 @@ const Sidebar = () => {
 			<li>
 				<NavLink rel="noopener noreferrer" to="/dashboard/allUsers" className="flex items-center p-2 space-x-3 rounded-md">
 				<FaUsers />
-					<span>All Users</span>
+					<span>All User</span>
 				</NavLink>
 			</li>
 			

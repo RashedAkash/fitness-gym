@@ -25,6 +25,7 @@ import AddNewForum from "../Pages/Dashboard/AddNewForum";
 import RecomandedCls from "../Pages/Dashboard/RecomandedCls";
 import ProfileSetting from "../Pages/Dashboard/ProfileSetting";
 import Community from "../Pages/Community/Community";
+import AdminRoute from "./AdminRoute";
 
 
 export const router = createBrowserRouter([{
@@ -94,7 +95,7 @@ export const router = createBrowserRouter([{
         //admin
         {
           path: '/dashboard/sub',
-          element:<ShowSubscribe />
+          element:  <ShowSubscribe />
         },
         {
           path: '/dashboard/allTrainer',

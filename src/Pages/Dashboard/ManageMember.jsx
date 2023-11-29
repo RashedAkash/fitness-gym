@@ -3,12 +3,14 @@ import Title from '../../components/Title/Title';
 import useUsers from '../../Hooks/useUsers';
 import emailjs from '@emailjs/browser'
 import Swal from 'sweetalert2';
+import useMember from '../../Hooks/useMember';
 
 
 const rejectionMessage = `Sending motivational quotes, success stories, or encouraging words to keep members motivated and focused on their fitness journey.`;
 const ManageMember = () => {
-  const { users } = useUsers();
-  console.log(users);
+  
+  const{member} = useMember()
+  console.log(member);
     const sendEmail = (userEmail) => {
     const serviceId = 'service_zv4ir8a'; // Replace with your EmailJS service ID
     const templateId = 'template_3r7r9ww'; // Replace with your EmailJS template ID
@@ -55,7 +57,7 @@ const ManageMember = () => {
     </thead>
     <tbody>
               {
-                users?.map((user, index) => <tr key={user._id}>
+                member?.map((user, index) => <tr key={user._id}>
         
         
         <td>
