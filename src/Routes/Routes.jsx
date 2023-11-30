@@ -28,6 +28,7 @@ import Community from "../Pages/Community/Community";
 import AdminRoute from "./AdminRoute";
 import TrainerRoute from "./TrainerRoute";
 import ActivityLog from "../Pages/Dashboard/ActivityLog";
+import Payment from "../Pages/Dashboard/Payment";
 
 
 export const router = createBrowserRouter([{
@@ -102,7 +103,7 @@ export const router = createBrowserRouter([{
         },
         {
           path: '/dashboard/allTrainer',
-            element:<AdminRoute><AllTrainer /></AdminRoute>
+            element:<AllTrainer />
           //  element:<AllTrainer />
         },
         {
@@ -114,6 +115,10 @@ export const router = createBrowserRouter([{
           path: '/dashboard/allUsers',
            element:<AdminRoute><Allusers /></AdminRoute>
           // element:<Allusers />
+        },
+        {
+          path: '/dashboard/payment',
+          element:<Payment />
         },
         //trainer
         {
@@ -135,8 +140,9 @@ export const router = createBrowserRouter([{
           element:<RecomandedCls />
         },
         {
-          path: '/dashboard/profileSettings',
-          element:<ProfileSetting />
+          path: '/dashboard/profileSettings/',
+          element: <ProfileSetting />,
+          
         },
         {
           path: '/dashboard/activityLog',

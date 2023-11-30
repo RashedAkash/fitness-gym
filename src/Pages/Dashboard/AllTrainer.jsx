@@ -1,10 +1,11 @@
 import React from 'react';
 import Title from '../../components/Title/Title';
 import useTrainer from '../../Hooks/useTrainer';
+import { Link } from 'react-router-dom';
 
 const AllTrainer = () => {
   const { trainer } = useTrainer();
-  
+  console.log(trainer);
   return (
     <div>
       <div className=' py-10'>
@@ -17,6 +18,7 @@ const AllTrainer = () => {
       <tr>
         <th>#</th>
         <th>Name</th>
+        <th>Salary</th>
         
         <th>Experience</th>
       </tr>
@@ -40,10 +42,17 @@ const AllTrainer = () => {
             </div>
           </div>
         </td>
-        
+        <td className=' font-bold'>$ { tr?.salary} </td>
                 <td>{ tr?.experience} years</td>
+                
         <th>
-          <button className="btn btn-ghost bg-[#dc1853] text-white btn-xs">Pay</button>
+                  {
+                  tr?.salary ?  <Link to='/dashboard/payment'>
+                  <button className="btn btn-ghost bg-[#dc1853] text-white btn-xs">Pay</button>
+                  </Link>:  
+                  <button disabled className="btn btn-ghost bg-[#dc1853] text-white btn-xs">Pay</button>
+                  
+                 }
         </th>
       </tr> )
       }
