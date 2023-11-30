@@ -67,7 +67,7 @@ const Login = () => {
   }
   return (
     <div className='py-10'>
-      <div className=' flex gap-8 items-center'>
+      <div className=' md:flex gap-8 items-center'>
         <div className=' md:w-1/2'>
           <img src={login} className='w-full' alt="" />
         </div>
